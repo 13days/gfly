@@ -1,0 +1,120 @@
+2020/12/22 00:39:34 service.go:85: [ERROR] tcp serve error, listen tcp 127.0.0.1:8000: bind: address already in use
+2020/12/22 21:25:31 server.go:231: [ERROR] resolver init error, Invalid key. Key must not begin with a '/': /Server.GDUF/NodeC/127.0.0.1:8000
+2020/12/22 21:25:58 service.go:85: [ERROR] tcp serve error, listen tcp 127.0.0.1:8000: bind: address already in use
+2020/12/22 21:26:59 service.go:85: [ERROR] tcp serve error, listen tcp 127.0.0.1:8000: bind: address already in use
+2020/12/22 21:27:05 server.go:231: [ERROR] resolver init error, Invalid key. Key must not begin with a '/': /Server.GDUF/NodeA/127.0.0.1:8000
+2020/12/22 21:28:31 service.go:85: [ERROR] tcp serve error, listen tcp 127.0.0.1:8000: bind: address already in use
+2020/12/22 21:30:18 server_transport.go:206: [ERROR] server Handle error: handlers is nil
+2020/12/22 21:31:00 server_transport.go:206: [ERROR] server Handle error: handlers is nil
+2020/12/22 21:31:10 server_transport.go:206: [ERROR] server Handle error: handlers is nil
+2020/12/22 21:31:20 server_transport.go:206: [ERROR] server Handle error: handlers is nil
+2020/12/22 21:35:11 server_transport.go:206: [ERROR] server Handle error: handlers is nil
+2020/12/22 21:35:51 server_transport.go:206: [ERROR] server Handle error: handlers is nil
+2020/12/22 21:36:06 server_transport.go:206: [ERROR] server Handle error: handlers is nil
+2020/12/22 21:55:28 server_transport.go:206: [ERROR] server Handle error: handlers is nil
+2020/12/22 21:57:18 server.go:231: [ERROR] resolver init error, Put "http://localhost:8500/v1/kv/Server.GDUF/NodeA/127.0.0.1:8001?flags=3304740253564472344": dial tcp 127.0.0.1:8500: connect: connection refused
+2020/12/22 21:59:54 server.go:231: [ERROR] resolver init error, Put "http://localhost:8500/v1/kv/Server.GDUF/NodeC/127.0.0.1:8003?flags=3304740253564472344": dial tcp 127.0.0.1:8500: connect: connection refused
+2021/01/14 20:38:49 server.go:231: [ERROR] resolver init error, Put "http://localhost:8500/v1/kv/gfly.GDUF/ServerC/127.0.0.1:9001?flags=3304740253564472344": dial tcp [::1]:8500: connect: connection refused
+2021/01/19 20:51:41 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 20:51:42 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 20:52:13 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 20:52:14 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 20:52:22 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 20:52:22 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 20:52:33 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 20:52:34 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 20:55:18 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 20:55:21 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 20:56:21 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 20:56:30 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 20:57:27 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 20:57:36 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 20:58:30 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 20:58:42 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 20:59:36 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 20:59:57 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 21:00:36 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 21:00:50 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 21:00:50 server_transport.go:162: [ERROR] s.handle err == io.E
+2021/01/19 21:05:06 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:5555->127.0.0.1:53753: read: connection reset by peer
+2021/01/22 17:21:07 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:5555->127.0.0.1:55426: read: connection reset by peer
+2021/01/22 17:21:07 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:5555->127.0.0.1:55432: read: connection reset by peer
+2021/01/22 17:21:07 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:5555->127.0.0.1:55437: read: connection reset by peer
+2021/01/22 17:21:07 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:5555->127.0.0.1:55503: read: connection reset by peer
+2021/01/22 18:09:20 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:5555->127.0.0.1:56931: read: connection reset by peer
+2021/01/22 18:31:26 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 18:31:26 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 18:32:47 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 18:32:47 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 18:37:27 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 18:37:27 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 18:37:27 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 18:40:33 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 18:40:33 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 18:40:33 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 18:54:43 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 18:54:43 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 18:54:43 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:07:25 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:07:25 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:7001->127.0.0.1:58618: read: connection reset by peer
+2021/01/22 19:07:25 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:07:25 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:13:24 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:13:24 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:13:24 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:14:13 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:14:13 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:14:13 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:7001->127.0.0.1:58818: read: connection reset by peer
+2021/01/22 19:14:13 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:14:31 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:14:32 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:16:28 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:16:28 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:7001->127.0.0.1:58887: read: connection reset by peer
+2021/01/22 19:16:28 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:16:28 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:17:17 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:17:17 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:7001->127.0.0.1:58910: read: connection reset by peer
+2021/01/22 19:17:17 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:17:17 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:18:10 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:18:10 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:7001->127.0.0.1:58940: read: connection reset by peer
+2021/01/22 19:18:10 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:18:10 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:20:20 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:20:20 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:7001->127.0.0.1:59000: read: connection reset by peer
+2021/01/22 19:20:20 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:20:20 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:22:18 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:22:18 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:7001->127.0.0.1:59066: read: connection reset by peer
+2021/01/22 19:22:18 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:22:18 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:31:43 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:31:43 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:31:43 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:33:18 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:33:18 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:33:18 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:34:05 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:34:05 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:7001->127.0.0.1:59368: read: connection reset by peer
+2021/01/22 19:34:05 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:34:05 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:35:01 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:35:01 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:7001->127.0.0.1:59396: read: connection reset by peer
+2021/01/22 19:35:01 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:35:01 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:39:53 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:39:53 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:39:53 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:44:58 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:44:58 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:7001->127.0.0.1:59678: read: connection reset by peer
+2021/01/22 19:44:58 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:44:58 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:51:08 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:51:08 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:7001->127.0.0.1:59839: read: connection reset by peer
+2021/01/22 19:51:08 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:51:08 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:52:03 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:52:03 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:52:03 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:52:42 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/22 19:52:42 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
