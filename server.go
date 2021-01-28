@@ -225,6 +225,8 @@ func (s *Server) InitPlugins() error {
 				plugin.WithSelectorSvrAddr(s.opts.selectorSvrAddr),
 				plugin.WithSvrAddr(s.opts.address),
 				plugin.WithServices(services),
+				plugin.WithFlowCompareMethod(s.opts.flowCompareMethods),
+				plugin.WithFlowCompareRate(s.opts.flowCompareRate),
 			}
 			if err := val.Init(pluginOpts...); err != nil {
 				log.Errorf("resolver init error, %v", err)

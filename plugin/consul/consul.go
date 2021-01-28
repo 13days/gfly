@@ -3,11 +3,13 @@ package consul
 import (
 	"errors"
 	"fmt"
+	"github.com/13days/gfly/flow_compare"
 	"github.com/13days/gfly/plugin"
 	"github.com/13days/gfly/selector"
 	"github.com/hashicorp/consul/api"
 	"net/http"
 	"strings"
+	"time"
 )
 
 // Consul implements the server discovery specification
@@ -18,9 +20,13 @@ type Consul struct {
 	balancerName string // load balancing mode, including random, polling, weighted polling, consistent hash, etc
 	writeOptions *api.WriteOptions
 	queryOptions *api.QueryOptions
+	closeChan    chan struct{}
+	doneChan     chan struct{}
+	keys     []string
 }
 
 const Name = "consul"
+const FlowCompareTag = "flowCompare"
 
 func init() {
 	plugin.Register(Name, ConsulSvr)
@@ -29,7 +35,9 @@ func init() {
 
 // global consul objects for framework
 var ConsulSvr = &Consul{
-	opts: &plugin.Options{},
+	opts:      &plugin.Options{},
+	closeChan: make(chan struct{}),
+	doneChan:  make(chan struct{}),
 }
 
 func (c *Consul) InitConfig() error {
@@ -116,8 +124,20 @@ func (c *Consul) Init(opts ...plugin.Option) error {
 		return err
 	}
 
+	defer c.asyncListenServicesSingOut()
+
+	var err error
 	for _, serviceName := range c.opts.Services {
 		nodeName := fmt.Sprintf("%s/%s", serviceName, c.opts.SvrAddr)
+
+		// 流量对比注册
+		if len(c.opts.FlowCompareMethods) != 0 {
+			nodeName, err = flow_compare.GenFlowComparePath(serviceName, c.opts.SvrAddr, c.opts.FlowCompareMethods, c.opts.FlowCompareRate)
+			fmt.Println("nodeName:", nodeName)
+			if err != nil {
+				return err
+			}
+		}
 
 		kvPair := &api.KVPair{
 			Key:   nodeName,
@@ -126,13 +146,26 @@ func (c *Consul) Init(opts ...plugin.Option) error {
 		}
 
 		fmt.Println(kvPair)
-		fmt.Println(c.writeOptions)
-		if _, err := c.client.KV().Put(kvPair, c.writeOptions); err != nil {
+		if _, err = c.client.KV().Put(kvPair, c.writeOptions); err != nil {
 			return err
 		}
+		c.keys = append(c.keys, nodeName)
 	}
 
 	return nil
+}
+
+func (c *Consul) asyncListenServicesSingOut()  {
+	// 监听每个service下线
+	go func() {
+		select {
+		case <-c.closeChan:
+			for _, key := range c.keys {
+				c.client.KV().Delete(key, c.writeOptions)
+			}
+			c.doneChan <- struct{}{}
+		}
+	}()
 }
 
 // Init implements the initialization of the consul configuration when the framework is loaded
@@ -144,4 +177,14 @@ func Init(consulSvrAddr string, opts ...plugin.Option) error {
 	ConsulSvr.opts.SelectorSvrAddr = consulSvrAddr
 	err := ConsulSvr.InitConfig()
 	return err
+}
+
+func Delete() {
+	ConsulSvr.closeChan <- struct{}{}
+	select {
+	case <-ConsulSvr.doneChan:
+		// 延时一段时间退出
+		time.Sleep(time.Second * 3)
+		return
+	}
 }

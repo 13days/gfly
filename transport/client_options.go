@@ -10,7 +10,9 @@ import (
 type ClientTransportOptions struct {
 	Target      string
 	ServiceName string
+	Method      string
 	Network     string
+	Protocol	string
 	Pool        connpool.Pool
 	Selector    selector.Selector
 	Timeout     time.Duration
@@ -23,6 +25,12 @@ type ClientTransportOption func(*ClientTransportOptions)
 func WithServiceName(serviceName string) ClientTransportOption {
 	return func(o *ClientTransportOptions) {
 		o.ServiceName = serviceName
+	}
+}
+
+func WithMethod(method string) ClientTransportOption {
+	return func(o *ClientTransportOptions) {
+		o.Method = method
 	}
 }
 

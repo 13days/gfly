@@ -13,11 +13,13 @@ type ServerOptions struct {
 	timeout           time.Duration // timeout
 	serializationType string        // serialization type, default: proto
 
-	selectorSvrAddr string   // service discovery server address, required when using the third-party service discovery plugin
-	tracingSvrAddr  string   // tracing plugin server address, required when using the third-party tracing plugin
-	tracingSpanName string   // tracing span name, required when using the third-party tracing plugin
-	pluginNames     []string // plugin name
-	interceptors    []interceptor.ServerInterceptor
+	selectorSvrAddr    string   // service discovery server address, required when using the third-party service discovery plugin
+	tracingSvrAddr     string   // tracing plugin server address, required when using the third-party tracing plugin
+	tracingSpanName    string   // tracing span name, required when using the third-party tracing plugin
+	flowCompareMethods []string // flow compare method, when then method of the service need compare, add to it
+	flowCompareRate    []int    // flow compare method percentage rate, the order as same as flowCompareMethods, e.g. : 1=1%,10=10%
+	pluginNames        []string // plugin name
+	interceptors       []interceptor.ServerInterceptor
 }
 
 type ServerOption func(*ServerOptions)
@@ -79,5 +81,12 @@ func WithTracingSvrAddr(addr string) ServerOption {
 func WithTracingSpanName(name string) ServerOption {
 	return func(o *ServerOptions) {
 		o.tracingSpanName = name
+	}
+}
+
+func WithFlowCompareMethod(method string, rate int) ServerOption {
+	return func(o *ServerOptions) {
+		o.flowCompareMethods = append(o.flowCompareMethods, method)
+		o.flowCompareRate = append(o.flowCompareRate, rate)
 	}
 }

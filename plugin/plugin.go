@@ -29,10 +29,12 @@ func Register(name string, plugin Plugin) {
 
 // Options for all plug-ins
 type Options struct {
-	SvrAddr         string   // server address
-	Services        []string // service arrays
-	SelectorSvrAddr string   // server discovery address ，e.g. consul server address
-	TracingSvrAddr  string   // tracing server address，e.g. jaeger server address
+	SvrAddr            string   // server address
+	Services           []string // service arrays
+	SelectorSvrAddr    string   // server discovery address ，e.g. consul server address
+	TracingSvrAddr     string   // tracing server address，e.g. jaeger server address
+	FlowCompareMethods []string // flow compare method, when then method of the service need compare, add to it
+	FlowCompareRate    []int    // flow compare method percentage rate, the order as same as FlowCompareMethods, e.g. : 1=1%,10=10%
 }
 
 // Option provides operations on Options
@@ -63,5 +65,17 @@ func WithSelectorSvrAddr(addr string) Option {
 func WithTracingSvrAddr(addr string) Option {
 	return func(o *Options) {
 		o.TracingSvrAddr = addr
+	}
+}
+
+func WithFlowCompareMethod(method []string) Option {
+	return func(o *Options) {
+		o.FlowCompareMethods = append(o.FlowCompareMethods, method...)
+	}
+}
+
+func WithFlowCompareRate(rate []int)  Option{
+	return func(o *Options) {
+		o.FlowCompareRate = append(o.FlowCompareRate, rate...)
 	}
 }

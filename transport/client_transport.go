@@ -4,8 +4,12 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"github.com/13days/gfly/codec"
 	"github.com/13days/gfly/codes"
+	"github.com/13days/gfly/flow_compare"
+	"github.com/13days/gfly/plugin/consul"
 	"net"
+	"time"
 )
 
 type clientTransport struct {
@@ -60,12 +64,12 @@ func (c *clientTransport) Send(ctx context.Context, req []byte, opts ...ClientTr
 	go func() {
 		if c.opts.Network == "tcp" {
 			rspBytes, err = c.SendTcpReq(ctx, req)
-			ch <- struct {}{}
+			ch <- struct{}{}
 		}
 
 		if c.opts.Network == "udp" {
 			rspBytes, err = c.SendUdpReq(ctx, req)
-			ch <- struct {}{}
+			ch <- struct{}{}
 		}
 	}()
 
@@ -92,8 +96,34 @@ func (c *clientTransport) SendTcpReq(ctx context.Context, req []byte) ([]byte, e
 		addr = c.opts.Target
 	}
 
-	fmt.Printf("addr:%v\n", addr)
+	t1 := time.Now()
+	resp, err := c.realSendTcpReq(ctx, req, addr)
+	dur1 := time.Now().Sub(t1)
+	// flow compare discovery
+	flowInfo, _ := c.opts.Selector.Select(consul.FlowCompareTag + "/" + c.opts.ServiceName)
+	if flowInfo != "" {
+		methodMap, svrAddr := flow_compare.ParseFlowComparePath(flowInfo)
+		if rate, ok := methodMap[c.opts.Method]; ok {
+			go func() {
+				fmt.Println("flow compare req...")
+				t2 := time.Now()
+				newContext, _ := context.WithTimeout(context.Background(), c.opts.Timeout)
+				resp1, err := c.realSendTcpReq(newContext, req, svrAddr)
+				if err != nil {
+					fmt.Println("flow req, err", err)
+					return
+				}
+				fmt.Println("flow compare resp...")
+				dur2 := time.Now().Sub(t2)
+				flow_compare.ExecFlowCompare(ctx, resp, resp1, dur1, dur2, codec.GetCodec(c.opts.Protocol), rate)
+			}()
+		}
+	}
 
+	return resp, err
+}
+
+func (c *clientTransport) realSendTcpReq(ctx context.Context, req []byte, addr string) ([]byte, error) {
 	conn, err := c.opts.Pool.Get(ctx, c.opts.Network, addr)
 	//	conn, err := net.DialTimeout("tcp", addr, c.opts.Timeout);
 	if err != nil {
@@ -126,7 +156,6 @@ func (c *clientTransport) SendTcpReq(ctx context.Context, req []byte) ([]byte, e
 	return frame, err
 }
 
-
 func (c *clientTransport) SendUdpReq(ctx context.Context, req []byte) ([]byte, error) {
 	// service discovery
 	addr, err := c.opts.Selector.Select(c.opts.ServiceName)
@@ -156,7 +185,7 @@ func (c *clientTransport) SendUdpReq(ctx context.Context, req []byte) ([]byte, e
 	}
 
 	recvBuf := make([]byte, 65536)
-	n, err := conn.Read(recvBuf);
+	n, err := conn.Read(recvBuf)
 	if err != nil {
 		return nil, err
 	}

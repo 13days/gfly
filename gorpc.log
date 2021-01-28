@@ -118,3 +118,24 @@
 2021/01/22 19:52:03 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
 2021/01/22 19:52:42 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
 2021/01/22 19:52:42 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/26 15:28:38 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/26 15:28:38 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/26 15:28:38 server_transport.go:209: [ERROR] server Handle error: RPC handle timeout
+2021/01/26 15:28:38 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:7001->127.0.0.1:50777: read: connection reset by peer
+2021/01/26 15:39:35 service.go:91: [ERROR] tcp serve error, listen tcp 127.0.0.1:9003: bind: address already in use
+2021/01/26 15:39:48 service.go:91: [ERROR] tcp serve error, listen tcp 127.0.0.1:9003: bind: address already in use
+2021/01/26 15:41:05 service.go:91: [ERROR] tcp serve error, listen tcp 127.0.0.1:9003: bind: address already in use
+2021/01/26 15:41:23 service.go:91: [ERROR] tcp serve error, listen tcp 127.0.0.1:9003: bind: address already in use
+2021/01/26 15:48:15 service.go:91: [ERROR] tcp serve error, listen tcp 127.0.0.1:9003: bind: address already in use
+2021/01/28 16:17:49 server.go:231: [ERROR] resolver init error, Put "http://localhost:8500/v1/kv/helloworld.Greeter/127.0.0.1:8000?flags=3304740253564472344": dial tcp [::1]:8500: connect: connection refused
+2021/01/28 18:55:09 server.go:232: [ERROR] resolver init error, Put "http://localhost:8501/v1/kv/flowCompare/helloworld.Greeter/SayHello@100$SayHello@100?flags=3304740253564472344": dial tcp 127.0.0.1:8501: connect: connection refused
+2021/01/28 18:55:25 server.go:232: [ERROR] resolver init error, Put "http://localhost:8501/v1/kv/flowCompare/helloworld.Greeter/SayHello@100$SayHello@100?flags=3304740253564472344": dial tcp 127.0.0.1:8501: connect: connection refused
+2021/01/28 21:47:57 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:8001->127.0.0.1:57081: read: connection reset by peer
+2021/01/28 21:48:21 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:8001->127.0.0.1:57088: read: connection reset by peer
+2021/01/28 21:49:15 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:8001->127.0.0.1:57103: read: connection reset by peer
+2021/01/28 21:49:42 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:8001->127.0.0.1:57122: read: connection reset by peer
+2021/01/28 21:50:53 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:8001->127.0.0.1:57141: read: connection reset by peer
+2021/01/28 21:51:38 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:8001->127.0.0.1:57166: read: connection reset by peer
+2021/01/28 21:52:04 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:8001->127.0.0.1:57174: read: connection reset by peer
+2021/01/28 21:55:13 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:8001->127.0.0.1:57278: read: connection reset by peer
+2021/01/28 21:58:18 server_transport.go:137: [ERROR] gorpc handle tcp conn error, read tcp 127.0.0.1:8001->127.0.0.1:57331: read: connection reset by peer

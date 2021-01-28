@@ -9,6 +9,7 @@ import (
 	"github.com/13days/gfly/interceptor"
 	"github.com/13days/gfly/log"
 	"github.com/13days/gfly/metadata"
+	"github.com/13days/gfly/plugin/consul"
 	"github.com/13days/gfly/protocol"
 	"github.com/13days/gfly/transport"
 	"github.com/13days/gfly/utils"
@@ -101,6 +102,7 @@ func (s *service) Close() {
 	if s.cancel != nil {
 		s.cancel()
 	}
+	consul.Delete()
 	fmt.Println("service closing ...")
 }
 

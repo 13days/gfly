@@ -262,8 +262,9 @@ func (c *channelPool) Checker (pc *Conn) bool {
 func isConnAlive(conn net.Conn) bool {
 	conn.SetReadDeadline(time.Now().Add(time.Millisecond))
 
+	// 检查池中的连接有残留字符, 说明连接不可用
 	if n, err := conn.Read(oneByte); n > 0 || err == io.EOF {
-		fmt.Println("关闭连接:", conn.RemoteAddr())
+		fmt.Printf("关闭连接:%v,n=%v,err=%v\n", conn.RemoteAddr(), n, err)
 		return false
 	}
 

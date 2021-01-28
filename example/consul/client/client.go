@@ -27,4 +27,5 @@ func main() {
 		err := c.Call(context.Background(), "/helloworld.Greeter/SayHello", req, rsp, opts ...)
 		fmt.Println(rsp.Msg, err)
 	}
+	time.Sleep(time.Second*10)
 }

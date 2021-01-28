@@ -103,3 +103,11 @@ func TestParentTimeout(t *testing.T)  {
 		fmt.Println("main process exit!")
 	}
 }
+
+
+func TestContext1(t *testing.T){
+	a, b, c := 1, 2, 3
+	if a == 1 && b != 2 || c ==3 {
+		fmt.Println("ok")
+	}
+}
