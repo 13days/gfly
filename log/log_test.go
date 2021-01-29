@@ -32,6 +32,6 @@ func TestFun(t *testing.T) {
 }
 
 func TestLogs(t *testing.T) {
-	context.Background()
-	Logs("测试")
+	ctx := context.Background()
+	Logs(ctx, "测试")
 }
